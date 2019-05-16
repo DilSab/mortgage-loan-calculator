@@ -1,0 +1,238 @@
+<?xml version="1.0" encoding="UTF-8"?>
+
+<?import javafx.scene.control.Button?>
+<?import javafx.scene.control.Menu?>
+<?import javafx.scene.control.MenuBar?>
+<?import javafx.scene.control.MenuItem?>
+<?import javafx.scene.control.RadioButton?>
+<?import javafx.scene.control.Separator?>
+<?import javafx.scene.control.Slider?>
+<?import javafx.scene.control.TextField?>
+<?import javafx.scene.control.ToggleGroup?>
+<?import javafx.scene.effect.Light.Distant?>
+<?import javafx.scene.effect.Lighting?>
+<?import javafx.scene.effect.Shadow?>
+<?import javafx.scene.layout.AnchorPane?>
+<?import javafx.scene.layout.HBox?>
+<?import javafx.scene.layout.VBox?>
+<?import javafx.scene.text.Font?>
+<?import javafx.scene.text.Text?>
+
+<AnchorPane prefWidth="0.0" xmlns="http://javafx.com/javafx/8.0.171" xmlns:fx="http://javafx.com/fxml/1" fx:controller="controllers.Controller">
+   <children>
+      <MenuBar prefHeight="25.0" prefWidth="800.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+        <menus>
+          <Menu mnemonicParsing="false" text="File">
+            <items>
+              <MenuItem fx:id="close" mnemonicParsing="false" onAction="#closeProgram" text="Close" />
+            </items>
+          </Menu>
+          <Menu mnemonicParsing="false" text="Help">
+            <items>
+              <MenuItem fx:id="about" mnemonicParsing="false" onAction="#showAbout" text="About" />
+            </items>
+          </Menu>
+        </menus>
+      </MenuBar>
+      <AnchorPane maxHeight="-Infinity" maxWidth="-Infinity" minHeight="-Infinity" minWidth="-Infinity" prefHeight="500.0" prefWidth="700.0" AnchorPane.bottomAnchor="0.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="25.0">
+         <children>
+            <HBox alignment="CENTER" prefHeight="40.0" prefWidth="900.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0" AnchorPane.topAnchor="0.0">
+               <children>
+                  <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Mortgage loan calculator" textAlignment="CENTER" wrappingWidth="292.0">
+                     <font>
+                        <Font name="SansSerif Bold" size="24.0" />
+                     </font>
+                  </Text>
+               </children>
+            </HBox>
+            <HBox fillHeight="false" prefHeight="440.0" prefWidth="880.0" AnchorPane.bottomAnchor="100.0" AnchorPane.leftAnchor="10.0" AnchorPane.rightAnchor="10.0" AnchorPane.topAnchor="60.0">
+               <children>
+                  <VBox prefHeight="200.0" prefWidth="100.0" spacing="10.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loan amount">
+                           <font>
+                              <Font name="SansSerif Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="slider1" blockIncrement="500.0" majorTickUnit="1000000.0" max="1000000.0" min="1000.0" minorTickCount="0" showTickLabels="true" value="1000.0">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant color="BLACK" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Slider>
+                        <Separator prefHeight="25.0" prefWidth="448.0" visible="false" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Interest Rate">
+                           <font>
+                              <Font name="SansSerif Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="slider2" blockIncrement="0.25" max="25.0" min="1.0" minorTickCount="0" showTickLabels="true" value="1.0">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant color="BLACK" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Slider>
+                        <Separator prefHeight="25.0" prefWidth="448.0" visible="false" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loan maturity">
+                           <font>
+                              <Font name="SansSerif Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <Slider fx:id="slider3" blockIncrement="1.0" majorTickUnit="35.0" max="35.0" min="1.0" minorTickCount="35" showTickLabels="true" value="1.0">
+                           <effect>
+                              <Lighting>
+                                 <bumpInput>
+                                    <Shadow />
+                                 </bumpInput>
+                                 <light>
+                                    <Light.Distant color="BLACK" />
+                                 </light>
+                              </Lighting>
+                           </effect>
+                        </Slider>
+                        <Separator prefHeight="25.0" prefWidth="448.0" visible="false" />
+                        <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Loan repayment schedule type">
+                           <font>
+                              <Font name="SansSerif Regular" size="18.0" />
+                           </font>
+                        </Text>
+                        <VBox spacing="10.0">
+                           <children>
+                              <RadioButton fx:id="radio1" mnemonicParsing="false" selected="true" text="Annuity">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="18.0" />
+                                 </font>
+                                 <toggleGroup>
+                                    <ToggleGroup fx:id="scheduleTypes" />
+                                 </toggleGroup>
+                              </RadioButton>
+                              <RadioButton fx:id="radio2" mnemonicParsing="false" text="Linear" toggleGroup="$scheduleTypes">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="18.0" />
+                                 </font>
+                              </RadioButton>
+                           </children>
+                        </VBox>
+                     </children>
+                  </VBox>
+                  <VBox prefHeight="359.0" prefWidth="272.0" HBox.hgrow="ALWAYS">
+                     <children>
+                        <Separator minHeight="22.0" prefHeight="22.0" prefWidth="402.0" visible="false" VBox.vgrow="NEVER" />
+                        <VBox VBox.vgrow="NEVER">
+                           <children>
+                              <HBox alignment="CENTER_LEFT" fillHeight="false" prefHeight="26.0" prefWidth="402.0" spacing="7.0" VBox.vgrow="NEVER">
+                                 <children>
+                                    <Separator orientation="VERTICAL" prefHeight="80.0" prefWidth="18.0" visible="false" />
+                                    <TextField fx:id="field1" onMouseEntered="#deleteInput1" prefHeight="25.0" prefWidth="160.0" promptText="Loan amount" text="1000">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="Eur">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="18.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="8.0" prefWidth="402.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Separator orientation="VERTICAL" prefHeight="25.0" prefWidth="75.0" visible="false" />
+                                    <Text fx:id="errorText1" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Digits only." visible="false">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox VBox.vgrow="NEVER">
+                           <children>
+                              <Separator minHeight="38.0" prefHeight="38.0" prefWidth="402.0" visible="false" VBox.vgrow="NEVER" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="25.0" prefWidth="402.0" spacing="7.0" VBox.vgrow="NEVER">
+                                 <children>
+                                    <Separator orientation="VERTICAL" prefHeight="80.0" prefWidth="18.0" visible="false" />
+                                    <TextField fx:id="field2" onMouseEntered="#deleteInput2" prefHeight="25.0" prefWidth="160.0" promptText="Interest Rate" text="1">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="\%">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="18.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                              <HBox alignment="CENTER_LEFT" prefHeight="7.0" prefWidth="402.0" VBox.vgrow="ALWAYS">
+                                 <children>
+                                    <Separator orientation="VERTICAL" prefHeight="27.0" prefWidth="75.0" visible="false" />
+                                    <Text fx:id="errorText2" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Digits only." visible="false">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="12.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <VBox VBox.vgrow="NEVER">
+                           <children>
+                              <Separator minHeight="40.0" prefHeight="40.0" prefWidth="402.0" visible="false" VBox.vgrow="NEVER" />
+                              <HBox alignment="CENTER_LEFT" prefHeight="21.0" prefWidth="402.0" spacing="7.0">
+                                 <children>
+                                    <Separator orientation="VERTICAL" prefHeight="80.0" prefWidth="18.0" visible="false" />
+                                    <TextField fx:id="field3" onMouseEntered="#deleteInput3" prefHeight="25.0" prefWidth="160.0" promptText="Loan maturity" text="1">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="18.0" />
+                                       </font>
+                                    </TextField>
+                                    <Text strokeType="OUTSIDE" strokeWidth="0.0" text="years">
+                                       <font>
+                                          <Font name="SansSerif Regular" size="18.0" />
+                                       </font>
+                                    </Text>
+                                 </children>
+                              </HBox>
+                           </children>
+                        </VBox>
+                        <HBox alignment="CENTER_LEFT" prefHeight="10.0" prefWidth="402.0">
+                           <children>
+                              <Separator orientation="VERTICAL" prefHeight="18.0" prefWidth="75.0" visible="false" />
+                              <Text fx:id="errorText3" fill="RED" strokeType="OUTSIDE" strokeWidth="0.0" text="Digits only." visible="false">
+                                 <font>
+                                    <Font name="SansSerif Regular" size="12.0" />
+                                 </font>
+                              </Text>
+                           </children>
+                        </HBox>
+                     </children>
+                  </VBox>
+               </children>
+            </HBox>
+            <HBox alignment="CENTER" layoutX="309.0" layoutY="429.0" prefHeight="33.0" prefWidth="118.0" AnchorPane.leftAnchor="0.0" AnchorPane.rightAnchor="0.0">
+               <children>
+                  <Button fx:id="button1" mnemonicParsing="false" onAction="#pressedCalc" text="Calculate">
+                     <font>
+                        <Font name="SansSerif Regular" size="18.0" />
+                     </font>
+                  </Button>
+               </children>
+            </HBox>
+         </children>
+      </AnchorPane>
+   </children>
+</AnchorPane>
